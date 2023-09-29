@@ -15,7 +15,7 @@ function PostList(props: PostListPageProps) {
                 {props.posts.map((post) => (
                     <li key={post.id}>
                         <Link href={`/posts/${post.id}`}>
-                            <a href="">{post.title}</a>
+                            {post.title}
                         </Link>
                     </li>
                 ))}

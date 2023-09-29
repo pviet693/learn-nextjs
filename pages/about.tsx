@@ -1,5 +1,5 @@
 import Header from "@/components/common/header";
-import { MainLayout } from "@/components/layout";
+import { AdminLayout } from "@/components/layout";
 // import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import React, { ReactElement } from "react";
@@ -57,7 +57,7 @@ export default function About(props: IAboutProps) {
 }
 
 About.getLayout = function getLayout(page: ReactElement) {
-    return <MainLayout>{page}</MainLayout>;
+    return <AdminLayout>{page}</AdminLayout>;
 };
 
 export async function getStaticProps() {
