@@ -1,5 +1,5 @@
 import axiosClient from "./axios-client";
-import { LoginPayload } from "@/models/index";
+import { LoginPayload } from "@/models";
 
 export const authApi = {
     login(payload: LoginPayload) {

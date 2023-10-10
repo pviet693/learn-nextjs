@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import { PublicConfiguration } from "swr/_internal";
-import { LoginPayload } from "@/models/index";
-import { authApi } from "@/api/index";
+import { LoginPayload } from "@/models";
+import { authApi } from "@/api";
 
 export function useAuth(options?: Partial<PublicConfiguration>) {
     // profile
