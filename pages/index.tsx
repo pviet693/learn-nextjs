@@ -14,7 +14,7 @@ export default function Home() {
                         "With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!",
                     url: "https://learn-nextjs-seven-rho.vercel.app/",
                     thumbnailUrl:
-                        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.m.wikipedia.org%2Fwiki%2FFile%3ANextjs-logo.svg&psig=AOvVaw3q0LUNshhJ_sb7y8cTk0oS&ust=1697034847816000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMC3v83Z64EDFQAAAAAdAAAAABAE"
+                        "https://blog.appsignal.com/_next/image?url=%2Fimages%2Fblog%2F2022-11%2Fnextjs-13.png&w=3840&q=50"
                 }}
             />
 
