@@ -84,8 +84,8 @@ export const getStaticProps: GetStaticProps<BlogPageProps> = async function (
         .use(rehypeDocument, { title: "Blog Details Page" })
         .use(rehypeFormat)
         .use(rehypeStringify)
-        .process(post.mdContent);
-    
+        .process(post?.mdContent || "");
+
     post.htmlContent = file.toString();
 
     return {
