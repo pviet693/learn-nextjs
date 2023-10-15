@@ -1,6 +1,7 @@
 import axiosClient from "@/api/axios-client";
 import { AppPropsWithLayout } from "@/models";
 import "@/styles/globals.css";
+import "@/styles/prism.css";
 import { createEmotionCache, theme } from "@/utils";
 import { CacheProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";

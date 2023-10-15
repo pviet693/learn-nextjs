@@ -36,3 +36,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Chuyển nội dung trong file mark-down thành object
+
+- npm i gray-matter
+
+## Chuyển đổi content mark-down sang HTML
+
+- Khi xử lý đầu vào là mark-down và đầu ra cũng là mark-down thì sử dụng package remark
+
+- Khi xử lý đầu vào là HTML và đầu ra cũng là HTML thì sử dụng package rehype
+
+- npm i unified rehype-document rehype-format rehype-stringify remark-parse remark-rehype
+
+- npm i remark-toc: Thêm Table of contents
+
+- npm i rehype-slug: Thêm id vào heading, khi nhấn vào mục trong Table of contents sẽ chạy xuống heading tương ứng
+
+- npm i rehype-autolink-headings: Thêm thẻ link vào heading, không cần nhấn vào mục trong Table of contents mới lấy được link của heading
+
+- npm i remark-prism: thêm hightlight cho thẻ code
