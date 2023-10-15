@@ -15,6 +15,8 @@ export interface SeoProps {
 export function Seo({ data }: SeoProps) {
     const { title, description, url, thumbnailUrl } = data;
 
+    console.log("thumbnailUrl", thumbnailUrl);
+
     return (
         <Head>
             {/* <!-- Primary Meta Tags --> */}
