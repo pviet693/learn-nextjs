@@ -10,7 +10,7 @@ export interface WorkCardProps {
 export function WorkCard({ work }: WorkCardProps) {
     return (
         <Stack direction={{ xs: "column", md: "row" }} spacing={2}>
-            <Box width={{ xs: "100%", md: "246px" }} flexShrink={0}>
+            <Box sx={{ xs: "100%", md: "246px", position: "relative" }} flexShrink={0}>
                 {" "}
                 {/** không co lại */}
                 <Image
@@ -18,15 +18,22 @@ export function WorkCard({ work }: WorkCardProps) {
                     alt="work thumbnail"
                     width={246}
                     height={180}
-                    layout="responsive"
                     priority
                 />
             </Box>
             <Box>
-                <Typography variant="h4" fontWeight="bold">{work.title}</Typography>
+                <Typography variant="h4" fontWeight="bold">
+                    {work.title}
+                </Typography>
                 <Stack direction="row" my={2}>
-                    <Chip color="secondary" label={new Date(Number(work.createdAt)).getFullYear()} size="small" />
-                    <Typography ml={3} color="GrayText">{work.tagList.join(", ")}</Typography>
+                    <Chip
+                        color="secondary"
+                        label={new Date(Number(work.createdAt)).getFullYear()}
+                        size="small"
+                    />
+                    <Typography ml={3} color="GrayText">
+                        {work.tagList.join(", ")}
+                    </Typography>
                 </Stack>
                 <Typography>{work.shortDescription}</Typography>
             </Box>

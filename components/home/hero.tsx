@@ -37,7 +37,8 @@ export function HeroSection() {
                             height: "243px",
                             boxShadow: "-5px 13px",
                             color: "secondary.light",
-                            borderRadius: "50%"
+                            borderRadius: "50%",
+                            position: "relative"
                         }}
                     >
                         <Image

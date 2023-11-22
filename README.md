@@ -56,3 +56,28 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - npm i rehype-autolink-headings: Thêm thẻ link vào heading, không cần nhấn vào mục trong Table of contents mới lấy được link của heading
 
 - npm i remark-prism: thêm hightlight cho thẻ code
+
+### Validation cho react-hook-form
+
+- npm install @hookform/resolvers yup
+
+### Alt + Shift + O mà muốn giữ lại react
+
+- Chỉnh sửa file tsconfig.json
+```
+    "jsx": "react"
+```
+
+### Issue text content did not match
+
+Process
+1. Server side generate HTML (A) and send to client
+2. Client get HTML (A) to display on UI and download JS in the background
+3. Once JS downloaded, it will be executed. Hydration process take place and generate a new DOM (B). Then it try to match B and A and attach event listener to it.
+
+If A = B => OK
+If A != B => Show error text content did not match
+
+Ở server không có status login luôn trả về menu là Home Blog Login
+Nhưng ở client hiện menu là Home Works Blog Logout
+=> Show error text content did not match

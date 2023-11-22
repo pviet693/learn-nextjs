@@ -1,6 +1,11 @@
 import * as React from "react";
 import { useAuth } from "@/hooks";
 import { useRouter } from "next/router";
+import { LoginForm } from "@/components/auth";
+import { LoginPayload } from "@/models";
+import { Box, Paper, Typography } from "@mui/material";
+import { getErrorMessage } from "@/utils";
+import { toast } from "react-toastify";
 
 export default function LoginPage() {
     const router = useRouter();
@@ -8,32 +13,28 @@ export default function LoginPage() {
         revalidateOnMount: false
     });
 
-    async function handleLoginClick() {
+    async function handleLoginSubmit(payload: LoginPayload) {
         try {
-            await login();
-            router.push("/about");
-        } catch (error) {
-            console.log("failed to login", error);
-        }
-    }
-
-    async function handleLogout() {
-        try {
-            await logout();
-        } catch (error) {
-            console.log("failed to logout", error);
+            await login(payload);
+            router.push("/");
+        } catch (error: unknown) {
+            const message = getErrorMessage(error);
+            toast.error(message);
         }
     }
 
     return (
-        <div>
-            <h1>Login Page</h1>
+        <Box>
+            <Paper
+                elevation={4}
+                sx={{ mx: "auto", mt: 8, mb: 4, p: 4, maxWidth: "480px", textAlign: "center" }}
+            >
+                <Typography component="h1" variant="h5" mb={3}>
+                    Login
+                </Typography>
 
-            <p>Profile: {JSON.stringify(profile || {}, null, 4)}</p>
-
-            <button onClick={handleLoginClick}>Login</button>
-            <button onClick={handleLogout}>Logout</button>
-            <button onClick={() => router.push("/about")}>Go to About</button>
-        </div>
+                <LoginForm onSubmit={handleLoginSubmit} />
+            </Paper>
+        </Box>
     );
 }

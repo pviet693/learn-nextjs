@@ -8,3 +8,10 @@ export interface Work {
     updatedAt: string;
     thumbnailUrl: string;
 }
+
+export interface WorkFiltersPayload {
+    search: string;
+    tagList_like?: string;
+
+    selectedTagList?: string[]; // temp value to store autocomplete value, not send to API
+}
