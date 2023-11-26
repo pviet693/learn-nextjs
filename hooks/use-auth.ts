@@ -59,6 +59,7 @@ export function useAuth(options?: Partial<SWRConfiguration>) {
         error,
         login,
         logout,
-        firstLoading
+        firstLoading,
+        isLoggedIn: Boolean(profile)
     };
 }

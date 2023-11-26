@@ -7,9 +7,16 @@ const nextConfig = {
         protocol: "https",
         hostname: "res.cloudinary.com"
       },
+      {
+        protocol: "https",
+        hostname: "placehold.co"
+      },
+      {
+        protocol: "https",
+        hostname: "js-post-api.herokuapp.com"
+      }
     ],
   },
-  webpack5: true,
   webpack: (config) => {
     config.resolve.fallback = {
       fs: false,

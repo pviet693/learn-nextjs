@@ -9,8 +9,7 @@ export interface HeaderDesktopProps {}
 
 export function HeaderDesktop(props: HeaderDesktopProps) {
     const router = useRouter();
-    const { profile, logout } = useAuth();
-    const isLoggedIn = !!profile?.username;
+    const { profile, logout, isLoggedIn } = useAuth();
     const routeList = ROUTE_LIST.filter(
         (route) => !route.requireLogin || (route.requireLogin && isLoggedIn)
     );

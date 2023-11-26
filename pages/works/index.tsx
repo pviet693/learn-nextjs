@@ -1,8 +1,8 @@
 import { MainLayout } from "@/components/layout";
 import { WorkFilters, WorkList } from "@/components/work";
-import { useWorkList } from "@/hooks";
+import { useAuth, useWorkList } from "@/hooks";
 import { ListParams, WorkFiltersPayload } from "@/models";
-import { Box, Container, Pagination, Skeleton, Stack, Typography } from "@mui/material";
+import { Button, Container, Pagination, Skeleton, Stack, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -10,6 +10,7 @@ export interface WorksPageProps {}
 
 export default function WorksPage(props: WorksPageProps) {
     const router = useRouter();
+    const { isLoggedIn } = useAuth();
     const filters: Partial<ListParams> = {
         _page: 1,
         _limit: 3,
@@ -54,15 +55,20 @@ export default function WorksPage(props: WorksPageProps) {
 
     return (
         <Container>
-            <Typography component="h1" variant="h3" fontWeight="bold" mb={4} mt={8}>
-                Work
-            </Typography>
+            <Stack mb={4} mt={8} direction="row" alignItems="center" justifyContent="space-between">
+                <Typography component="h1" variant="h3" fontWeight="bold">
+                    Work
+                </Typography>
+
+                {isLoggedIn && (
+                    <Button variant="contained" onClick={() => router.push("/works/add")}>
+                        Add new Work
+                    </Button>
+                )}
+            </Stack>
 
             {router.isReady ? (
-                <WorkFilters
-                    initialValues={initFiltersPayload}
-                    onSubmit={handleFiltersChange}
-                />
+                <WorkFilters initialValues={initFiltersPayload} onSubmit={handleFiltersChange} />
             ) : (
                 <Skeleton
                     variant="rectangular"

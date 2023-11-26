@@ -9,6 +9,7 @@ export interface LayoutProps {
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
     getLayout?: (page: ReactElement) => ReactNode;
+    requiredLogin?: boolean;
 };
 
 export type AppPropsWithLayout = AppProps & {

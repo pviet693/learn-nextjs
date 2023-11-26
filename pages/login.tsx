@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { LoginForm } from "@/components/auth";
 import { LoginPayload } from "@/models";
 import { Box, Paper, Typography } from "@mui/material";
-import { getErrorMessage } from "@/utils";
+import { decodeUrl, getErrorMessage } from "@/utils";
 import { toast } from "react-toastify";
 
 export default function LoginPage() {
@@ -16,7 +16,9 @@ export default function LoginPage() {
     async function handleLoginSubmit(payload: LoginPayload) {
         try {
             await login(payload);
-            router.push("/");
+
+            const backTo = router.query?.back_to ? decodeUrl(router.query?.back_to as string) : "/";
+            router.push(backTo)
         } catch (error: unknown) {
             const message = getErrorMessage(error);
             toast.error(message);

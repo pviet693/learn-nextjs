@@ -1,4 +1,5 @@
 import axiosClient from "@/api/axios-client";
+import { Auth } from "@/components/common";
 import { AppPropsWithLayout } from "@/models";
 import "@/styles/globals.css";
 import "@/styles/prism.css";
@@ -19,6 +20,7 @@ export default function App({
     emotionCache = clientSideEmotionCache
 }: AppPropsWithLayout) {
     const getLayout = Component.getLayout ?? ((page) => page);
+    const requiredLogin = Component.requiredLogin || false;
 
     return (
         <CacheProvider value={emotionCache}>
@@ -39,7 +41,11 @@ export default function App({
                 <SWRConfig
                     value={{ fetcher: (url) => axiosClient.get(url), shouldRetryOnError: false }}
                 >
-                    {getLayout(<Component {...pageProps} />)}
+                    {getLayout(
+                        <Auth requiredLogin={requiredLogin}>
+                            <Component {...pageProps} />
+                        </Auth>
+                    )}
                 </SWRConfig>
             </ThemeProvider>
         </CacheProvider>
